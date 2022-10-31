@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Donuts</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+
+		<link rel="stylesheet" href="./css/saurav_donuts.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container bordBtm">
+				<div class="mainFlex spaceB">
+					<div class="discount">
+						<h4>Get 20% off your first order: <span> 20%OFF</span></h4>
+					</div>
+					<div class="register">
+						<ul>
+							<li><a href="#">log in</a></li>
+							<li><a href="#">register</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<nav>
+				<div class="container blank">
+					<div class="mainFlex spaceB">
+						<div class="logo">
+							<a href="#">
+								<img src="./saurav_donutsImages/logo.svg" alt="" />
+							</a>
+						</div>
+						<div class="menu">
+							<ul>
+								<li>
+									<a href="#"
+										>home
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										>shop
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										>product
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										>collection
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										>blog
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										>pages
+										<i class="fa fa-light fa-angle-down"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="utility">
+							<ul>
+								<li>
+									<div id="searchIcon">
+										<i class="fa fa-light fa-magnifying-glass"></i>
+									</div>
+								</li>
+								<li>
+									<div id="wishIcon" onclick="switchWish()">
+										<i class="fa fa-light fa-heart"></i>
+									</div>
+									<span id="wishCnt">0</span>
+								</li>
+								<li>
+									<div id="cartIcon" onclick="switchCart()">
+										<i class="fa-solid fa-basket-shopping"></i>
+										<h6 id="priceCnt"></h6>
+									</div>
+									<span id="foodCnt"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<section>
+			<div class="backImage">
+				<div class="container backPos">
+					<div class="mainFlex flexCol allCenter">
+						<h3 class="backUpper">home | donuts</h3>
+						<h2 class="backLower" id="currPage">donuts</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div id="homePage">
+				<div class="container blank">
+					<div class="mainFlex flexWrap spaceB" id="mainCart"></div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div id="cartPage">
+				<div class="container blank">
+					<div class="mainFlex flexCol spaceB">
+						<div class="upperCart mainFlex spaceB">
+							<h4>my cart:</h4>
+							<h6 id="totalItems"></h6>
+						</div>
+						<div class="midCart mainFlex spaceB flexWrap" id="midCart"></div>
+						<div class="lowerCart mainFlex spaceB">
+							<input
+								type="button"
+								value="back to shopping"
+								id="backSh"
+								onclick="switchHome()"
+							/>
+							<input
+								type="button"
+								value="clear cart"
+								id="clrCart"
+								onclick="clrCart()"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div id="wishPage">
+				<div class="container blank">
+					<div class="mainFlex flexCol spaceB">
+						<div class="upperCart mainFlex spaceB">
+							<h4>my wishlist:</h4>
+							<h6 id="totalwishItems">3 item</h6>
+						</div>
+						<div class="midCart mainFlex spaceB flexWrap" id="midWish">
+							<div class="cartRow">
+								<div class="cartItem">
+									<div class="mainFlex spaceB">
+										<div class="cartImage">
+											<img
+												src="./saurav_donutsImages/orange juice.webp"
+												alt=""
+											/>
+										</div>
+										<div class="cartDes">
+											<a href="#">
+												<h4>orange juice</h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="addWishCart">
+									<input type="button" value="add to cart" id="addWishBtn" />
+								</div>
+								<div class="wishCnt">
+									<h3 class="wishPrice" id="wish1">
+										$2.00
+										<span> $5.00 </span>
+									</h3>
+									<input type="button" value="remove" id="removeWishBtn" />
+								</div>
+							</div>
+							<div class="cartRow">
+								<div class="cartItem">
+									<div class="mainFlex spaceB">
+										<div class="cartImage">
+											<img src="./saurav_donutsImages/burger.webp" alt="" />
+										</div>
+										<div class="cartDes">
+											<a href="#">
+												<h4>chesse deluxe</h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="addWishCart">
+									<input type="button" value="add to cart" id="addWishBtn" />
+								</div>
+								<div class="wishCnt">
+									<h3 class="wishPrice" id="wish1">
+										$9.00
+										<span> $11.00 </span>
+									</h3>
+									<input type="button" value="remove" id="removeWishBtn" />
+								</div>
+							</div>
+							<div class="cartRow">
+								<div class="cartItem">
+									<div class="mainFlex spaceB">
+										<div class="cartImage">
+											<img src="./saurav_donutsImages/donut.jpg" alt="" />
+										</div>
+										<div class="cartDes">
+											<a href="#">
+												<h4>french toast</h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="addWishCart">
+									<input type="button" value="add to cart" id="addWishBtn" />
+								</div>
+								<div class="wishCnt">
+									<h3 class="wishPrice" id="wish1">
+										$3.00
+										<span> $5.00 </span>
+									</h3>
+									<input type="button" value="remove" id="removeWishBtn" />
+								</div>
+							</div>
+						</div>
+						<div class="lowerCart mainFlex spaceB">
+							<input
+								type="button"
+								value="back to shopping"
+								id="backSh"
+								onclick="switchHome()"
+							/>
+							<input
+								type="button"
+								value="clear wishlist"
+								id="clrWish"
+								onclick="clrWish()"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="blank"></div>
+		<!-- https://mitho-food.myshopify.com/collections/donuts -->
+
+		<script
+			src="https://code.jquery.com/jquery-3.6.1.min.js"
+			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+			crossorigin="anonymous"
+		></script>
+		<script src="./js/saurav_donuts.js"></script>
+	</body>
+</html>
